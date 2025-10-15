@@ -30,3 +30,13 @@ form .pos {
 input {
     margin-bottom: 5px;
 }
+.result {
+    font-family: 'Arial';
+    font-size: 16pt;
+    border: 1px solid #ff552c;
+    border-radius: 5px;
+    background-color: #e7a1e7ad;
+    padding: 10px;
+    max-width: 600px;
+    margin: 0 auto;
+}
