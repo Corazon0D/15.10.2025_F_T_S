@@ -3,12 +3,21 @@
 
 <head>
     <meta charset="UTF-8">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
     <title>{{ title }}</title>
 </head>
 <body>
+<div class="main_page">
     <h1>Привет, я отрендаренный шаблон!</h1>
-    <p>Здоровость с пользователем от имени{{ user }}</p>
+    <p>Здороваюсь с пользователем от имени {{ user }}</p>
     <p>Для регистрации заполните <a href="/form-sample">форму</a></p>
     <p>Пример <a href="conditions-sample/2">условий</a> в шаблонах Jinja.</p>
+    <p>В библиотеке имеются следующие <a href="/genres"> жанры </a></p>
+    <p>Обратный отсчёт, <a href="/countdown"> начнём? </a></p>
+    <p>Про жанры смотри <a href="/about"> тут </a></p>
+    <p>И смотри что-то <a href="/greet"> тут </a></p>
+</div>
 </body>
 </html>

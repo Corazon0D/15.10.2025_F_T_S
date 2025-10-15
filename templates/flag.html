@@ -8,20 +8,14 @@
           integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="{{url_for('static', filename='css/styles.css')}}">
     <title>{{ title }}</title>
-</head>
+    </head>
 <body>
-<h1>Проверка числа {{ number }} на чётность</h1>
-<div class="result">
-    <p>
-        Число {{ number }} &mdash;
-        {% if number % 2 == 0 %}
-            <b>Чётное</b>
-        {% else %}
-            <b>Нечётное</b>
-        {% endif %}
-    </p>
+<div class="flag">
+    <img src="{{ url_for('static', filename='images/flag.webp') }}"
+    height="400"
+    width="600"
+    alt="Нету флага">
 </div>
 </body>
-
 </html>
 

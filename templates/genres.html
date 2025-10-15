@@ -10,18 +10,13 @@
     <title>{{ title }}</title>
 </head>
 <body>
-<h1>Проверка числа {{ number }} на чётность</h1>
-<div class="result">
-    <p>
-        Число {{ number }} &mdash;
-        {% if number % 2 == 0 %}
-            <b>Чётное</b>
-        {% else %}
-            <b>Нечётное</b>
-        {% endif %}
-    </p>
-</div>
+<h1>А вот и жанры:</h1>
+<div class="ggenres">
+    <ol>
+        {% for genre in genres %}
+            <li>{{ genre }}</li>
+        {% endfor %}
+        </ol>
+    </div>
 </body>
-
 </html>
-

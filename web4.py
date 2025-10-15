@@ -27,12 +27,12 @@ def index():
 # user='слушатель от ИПАП'
 # title='Пример рендеринга')
 
-
+# ДЗ  Делаю обратный отсчёт ! ! !
 @app.route('/countdown')  # Декоратор
 def cdown():
     lst = [str(x) for x in reversed(range(11))]
     lst.append('Поехали!')
-    return '<br>'.join(lst)
+    return render_template('countdown.html', countdown=lst) #'<br>'.join(lst)
 
 
 @app.route('/conditions-sample/<int:number>')
@@ -41,84 +41,38 @@ def event_odd(number):  # Чётное не чётное
                            number=number,
                            title='Чётное или не чётное')
 
+# ДЗ ТУТА Я СДЕЛАЛ ! ! !
 @app.route('/about')  # Декоратор
 def about():
-    return """
-    Это страница с более подробной информацией.
-    <br>А вот <a href="/genres">тут</a> про жанры.
-    <br>А вот <a href="/countdown">тут</a> обратный отсчёт
-    <br>А вот <a href="/flag">тут</a> Флаг.
-    <br><a href="/home">назад></a>
-    """
+    return render_template('about.html')
 
-
+# ДЗ с этого начал ! ! !
 @app.route('/genres')
 def genres():
     temp = []
     con = sqlite3.connect('db/books_bd.sqlite')
     cur = con.cursor()
     res = cur.execute("SELECT * FROM genres").fetchall()
+    genres = [row[1] for row in res]  # получаем только названия жанров
     cur.close()
     con.close()
-    for _, name in res:
-        temp.append(name)
-    temp = list(map(lambda x: '<li>' + x + '</li>', temp))
-    res = '<br>'.join(temp)
-    result = f"""
-    <!DOCTYPE html>
-<html lang="ru">
-<head>
-    <!--как будет отображаться на странице-->
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="{url_for("static", filename='css/styles.css')}">
-    <title>Жанры</title>
-</head>
-<body>
-<!--что будут отображаться на странице-->
-<h1>А вот и жанры:</h1>
-<ol>
-{res}
-<ol>
-</body>
-</html>
-    """
-    return result
+    return render_template('genres.html', genres=genres)
 
-
+# ДЗ ФЛАГ сделал ! ! !
 @app.route('/flag')
 def flag():
-    return f"""<img src="{url_for("static", filename='images/flag.webp')}" 
-    height="40" width="60"
-    alt=\"Нету флага\">"""
+    return render_template('flag.html')
 
 
 # <name> - строка
 # <num:int> - целое
 # <num:float> - десятичная дробь
 
+# ТА-ТА-ТААА Я Заканчиваю  ! ! ! !
 @app.route("/greet", defaults={'name': None})
 @app.route("/greet/<name>")
 def greeting(name):
-    if name is None:
-        return '<h1> Не с кем здороваться!!!</h1>'
-    return f"""
-    <!DOCTYPE html>
-<html lang="ru">
-<head>
-    <!--как будет отображаться на странице-->
-    <meta charset="UTF-8">
-    <meta name="description" content="Описание страницы сайта.">
-    <link rel="stylesheet" href="{url_for('static', filename='css/styles.css')}">
-    <title>Приветствуем тебя, {name} </title>
-</head>
-<body>
-<h1>{name.capitalize()}, мы приветствуем тебя</h1>
-<!--что будут отображаться на странице-->
-<h1>А вот и жанры:</h1>
-{name}
-</body>
-</html>
-    """
+    return render_template('greet.html', name=name, genres=genres)
 
 
 @app.route('/form-sample', methods=['GET', 'POST'])

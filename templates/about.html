@@ -8,20 +8,14 @@
           integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="{{url_for('static', filename='css/styles.css')}}">
     <title>{{ title }}</title>
-</head>
+    </head>
 <body>
-<h1>Проверка числа {{ number }} на чётность</h1>
-<div class="result">
-    <p>
-        Число {{ number }} &mdash;
-        {% if number % 2 == 0 %}
-            <b>Чётное</b>
-        {% else %}
-            <b>Нечётное</b>
-        {% endif %}
-    </p>
+<div class="main_page">
+<h1>Это страница с более подробной информацией.</h1>
+    <p>А вот <a href="/genres">тут</a> про жанры.</p>
+    <p>А вот <a href="/countdown">тут</a> обратный отсчёт</p>
+    <p>А вот <a href="/flag">тут</a> Флаг.</p>
+    <p><a href="/home">Назад</a></p>
 </div>
 </body>
-
 </html>
-

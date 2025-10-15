@@ -8,20 +8,16 @@
           integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="{{url_for('static', filename='css/styles.css')}}">
     <title>{{ title }}</title>
-</head>
+    </head>
 <body>
-<h1>Проверка числа {{ number }} на чётность</h1>
-<div class="result">
-    <p>
-        Число {{ number }} &mdash;
-        {% if number % 2 == 0 %}
-            <b>Чётное</b>
-        {% else %}
-            <b>Нечётное</b>
-        {% endif %}
-    </p>
+<div class="sult">
+    <h1>Обратный отсчёт:</h1>
+    <ul style="list-style-type: none;">
+        {% for item in countdown %}
+            <li>{{ item }}</li>
+        {% endfor %}
+    </ul>
 </div>
 </body>
-
 </html>
 
